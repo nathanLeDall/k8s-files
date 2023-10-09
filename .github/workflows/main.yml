@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: [self-hosted]
+    runs-on: self-hosted
     env:
         path: k8s-t2/target/
     steps:
