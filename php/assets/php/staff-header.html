@@ -1,0 +1,197 @@
+<div class="header" onscroll="scroll();">
+	<div class="header_contained">
+		<a href="/"><img id="header_img" src="../Archive/Logo Nexlanding Small.png"></img></a>
+		<div class="header_buttons">
+			<button id="create" onmouseover="showDiv('create')">Create</button>
+			<button id="programs" onmouseover="showDiv('programs')">Programs</button>
+			<a id="insights" href="insights" onmouseover="hideBoth()">Insights</a>
+			<!--<button id="the_circle" onclick="">The Circle</button>-->
+			<a id="about_us" href='about-us' onmouseover="hideBoth()">About Us</a>
+			<a id="contact_us" href="contact-us" onmouseover="hideBoth()">Contact Us</a>
+			<!--<button id="lang" onclick="">En/Fr</button>-->
+		</div>
+	</div>
+	<div class="hamburger" onclick="show_burg_buttons()">
+		<div class="burg_bar1"></div>
+		<div class="burg_bar2"></div>
+		<div class="burg_bar3"></div>
+	</div>
+
+	<div class="hamburg_buttons_con">
+		<div class="hamburger_buttons">
+			<button id="burg_create" onclick="show_burg_buttn('burg_create')">create</button><br>
+			<button id="burg_programs" onclick="show_burg_buttn('burg_programs')">Programs</button><br>
+			<a id="burg_insights" href='insights'>Insights</a><br>
+			<!--<button id="burg_the_circle" onclick="show_burg_buttn('burg_the_circle')">The Circle</button><br>-->
+			<a id="burg_about_us" href='about-us'>About Us</a><br>
+			<a id="burg_contact_us" href='contact-us'>Contact Us</a><br>
+			<!--<button id="burg_lang" onclick="show_burg_buttn('burg_lang')">En/Fr</button>-->
+		</div>
+	</div>
+	<div class="burg_create_div">
+		<div class="burg_sub_header_container">
+			<div class="burg_sub_header">
+				<h1 id="burg_sub_header_title">create</h1>
+			</div>
+			<table class="hamburg_table">
+				<tr>
+					<td>
+						<a class="btn" href='create-an-article'>Create An Article</a>
+					</td>
+					<td>
+						<a class="btn" href='saas-software'>SaaS Software</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="btn" href='cybersecurity'>Cybersecurity</a>
+					</td>
+					<td>
+						<a class="btn" href='cloud-computing-networking-iot'>Cloud Computing Networking IoT</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="btn" href='luxury-cosmetics'>Luxury Cosmetics</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="burg_programs_div">
+		<div class="burg_sub_header_container">
+			<div class="burg_sub_header">
+				<h1 id="burg_sub_header_title">Programs</h1>
+			</div>
+			<table class="hamburg_table">
+				<tr>
+					<td>
+						<a class="btn" href='discover-new-markets'>Discover New Markets</a>
+					</td>
+					<td>
+						<a class="btn" href='international-expansion'>International Expansion</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="btn" href='growth-management'>Growth Management</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="create" onmouseleave="hideDiv('create')">
+		<div class="sub_header_container">
+			<div class="sub_header">
+				<h1 id="sub_header_title">Create</h1>
+				<div class="x-button" onclick="hideDiv('create')">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+				</div>
+			</div>
+			<table>
+				<tr>
+					<td>
+						<a class="btn" href='food-and-beverages'>Food & Beverages</a>
+					</td>
+					<td>
+						<a class="btn" href='saas-software'>SaaS Software</a>
+					</td>
+					<td>
+						<a class="btn" href='luxury-cosmetics'>Luxury Cosmetics</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="btn" href='cybersecurity'>Cybersecurity</a>
+					</td>
+					<td>
+						<a class="btn" href='cloud-computing-networking-iot'>Cloud Computing Networking
+							IoT</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="programs" onmouseleave="hideDiv('programs')">
+		<div class="sub_header_container">
+			<div class="sub_header">
+				<h1 id="sub_header_title">Programs</h1>
+				<div class="x-button" onclick="hideDiv('programs')">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+				</div>
+			</div>
+			<table>
+				<tr>
+					<td>
+						<a class="btn" href='discover-new-markets'>Discover New Markets</a>
+					</td>
+					<td>
+						<a class="btn" href='international-expansion'>International Expansion</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="btn" href='growth-management'>Growth Management</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

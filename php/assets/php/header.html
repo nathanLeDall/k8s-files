@@ -1,0 +1,232 @@
+<div class="header" onscroll="scroll();">
+	<div class="header_contained">
+		<a href="/"><img id="header_img" src="../Archive/Logo Nexlanding Small.png"></img></a>
+		<div class="header_buttons">
+			<button id="industries" onmouseover="showDiv('industries')">Industries</button>
+			<button id="programs" onmouseover="showDiv('programs')">Programs</button>
+			<button id="insights" onmouseover="showDiv('insights_head')">Insights</button>
+			<!--<button id="the_circle" onclick="">The Circle</button>-->
+			<a id="about_us" href='about-us' onmouseover="hideBoth()">About Us</a>
+			<a id="contact_us" href="contact-us" onmouseover="hideBoth()">Contact Us</a>
+			<!--<button id="lang" onclick="">En/Fr</button>-->
+		</div>
+	</div>
+	<div class="hamburger" onclick="show_burg_buttons()">
+		<div class="burg_bar1"></div>
+		<div class="burg_bar2"></div>
+		<div class="burg_bar3"></div>
+	</div>
+
+	<div class="hamburg_buttons_con">
+		<div class="hamburger_buttons">
+			<div style="justify-content: center; width: 100%;">
+			<a id="burg_industries" onclick="show_burg_buttn('burg_industries')">Industries</a><br>
+			<a id="burg_programs" onclick="show_burg_buttn('burg_programs')">Programs</a><br>
+			<a id="burg_insights" onclick="show_burg_buttn('burg_insights')">Insights</a><br>
+			<a id="burg_about_us" href='about-us'>About Us</a><br>
+			<a id="burg_contact_us" href='contact-us'>Contact Us</a><br>
+			</div>
+		</div>
+	</div>
+	<div class="burg_industries_div">
+		<div class="burg_sub_header_container">
+			<div class="burg_sub_header">
+				<h1 id="burg_sub_header_title">Industries</h1>
+			</div>
+			<table class="hamburg_table">
+				<tr>
+					<td>
+						<a class="btn" href='cybersecurity'>Cybersecurity</a>
+						
+					</td>
+					<td>
+						<a class="btn" href='saas-software'>SaaS Software</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="btn" href='cloud-computing-networking-iot'>Cloud Computing, Networking, IoT</a>
+						
+					</td>
+					<td>
+						<a class="btn" href='food-and-beverages'>Food & Beverages</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="btn" href='luxury-cosmetics'>Luxury Cosmetics</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="burg_programs_div">
+		<div class="burg_sub_header_container">
+			<div class="burg_sub_header">
+				<h1 id="burg_sub_header_title">Programs</h1>
+			</div>
+			<table class="hamburg_table">
+				<tr>
+					<td>
+						<a class="btn" href='discover-new-markets'>Discover New Markets</a>
+					</td>
+					<td>
+						<a class="btn" href='international-expansion'>International Expansion</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="btn" href='growth-management'>Growth Management</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="burg_insights_div">
+		<div class="burg_sub_header_container">
+			<div class="burg_sub_header">
+				<h1 id="burg_sub_header_title">Insights</h1>
+			</div>
+			<table class="hamburg_table">
+				<tr>
+					<td>
+						<a class="btn" href='insights'>Insights</a>
+					</td>
+					<td>
+						<a class="btn" href='case-studies'>Case Studies</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="industries" onmouseleave="hideDiv('industries')">
+		<div class="sub_header_container">
+			<!--<div class="sub_header">
+				<h1 id="sub_header_title">Industries</h1>
+				<div class="x-button" onclick="hideDiv('industries')">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+				</div>
+			</div>-->
+			<table class="table_header">
+				<tr>
+					<td>
+						<a class="btn" href='cybersecurity'>Cybersecurity</a>
+						
+					</td>
+					<td>
+						<a class="btn" href='saas-software'>SaaS Software</a>
+					</td>
+					<td>
+						<a class="btn" href='cloud-computing-networking-iot'>Cloud Computing Networking
+							IoT</a>
+						
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="btn" href='food-and-beverages'>Food & Beverages</a>
+					</td>
+					<td>
+						<a class="btn" href='luxury-cosmetics'>Luxury Cosmetics</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="programs" onmouseleave="hideDiv('programs')">
+		<div class="sub_header_container">
+			<!--<div class="sub_header">
+				<h1 id="sub_header_title">Programs</h1>
+				<div class="x-button" onclick="hideDiv('programs')">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+				</div>
+			</div>-->
+			<table class="table_header">
+				<tr>
+					<td>
+						<a class="btn" href='discover-new-markets'>Discover New Markets</a>
+					</td>
+					<td>
+						<a class="btn" href='international-expansion'>International Expansion</a>
+					</td>
+					<td>
+						<a class="btn" href='growth-management'>Growth Management</a>
+						
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="insights_head" onmouseleave="hideDiv('insights_head')">
+		<div class="sub_header_container">
+			<!--<div class="sub_header">
+				<h1 id="sub_header_title">Industries</h1>
+				<div class="x-button" onclick="hideDiv('industries')">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+				</div>
+			</div>-->
+			<table class="table_header">
+				<tr>
+					<td>
+						<a class="btn" href='insights'>Insights</a>
+					</td>
+					<td>
+						<a class="btn" href='case-studies'>Case Studies</a>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+					<td>
+						<button class="btn" onclick="redirect('')"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

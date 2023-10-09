@@ -1,0 +1,373 @@
+.header {
+	z-index: 2;
+	top: 0px;
+	position: sticky;
+	width: inherit;
+	background-color: white;
+	height: 100px;
+	border-bottom: 2px #DDDDDD solid;
+	width: 100%;
+}
+.header_contained{
+	margin-left: calc(50% - 1400px/2);
+	padding-left: 90px;
+	max-width: 1250px;
+	height: 100%;
+}
+.header_buttons {
+	position: relative;
+	padding-top: 40.5px;
+	margin-right: 30px;
+	float: right;
+}
+.table_header{
+	margin-right: 0px;
+    margin-left: auto;
+}
+.industries, .programs, .insights_head{
+	display: none;
+	position: fixed;
+	width: inherit;
+	height: auto;
+	align-items: right;
+	justify-content: right;
+	border-top: 2px #DDDDDD solid;
+	background-color: white;
+	top: 100px;
+	padding-bottom: 20px;
+	z-index: -1;
+	opacity: 0;
+	animation: fadeInAnimation 0.5s forwards;
+	box-shadow: 0px 4px 4px -2px #DDDDDD;
+}
+
+@keyframes fadeInAnimation {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.sub_header {
+	display: flex;
+}
+
+.sub_header_container {
+	border: 2px white solid;
+	padding-left: 100px;
+}
+
+#sub_header_title {
+	padding-right: 800px;
+	color: black;
+
+}
+
+.btn {
+	margin: 30px 80px 0 0;
+	display: inline-block;
+	border: none;
+	background-color: white;
+	cursor: pointer;
+	font-family: "neuzeit-grotesk", sans-serif;
+	text-decoration: none;
+	color: #222222;
+	transition: all 0.3s;
+	width: auto;
+	
+}
+.btn:hover{
+	border-bottom: 1px black solid;
+	transform: translateY(-2.5px);
+	
+}
+
+#industries:hover+.industries {
+	display: block;
+}
+
+#industries,
+#programs,
+#insights,
+#the_circle,
+#about_us,
+#contact_us,
+#lang {
+	font-family: "neuzeit-grotesk", sans-serif;
+	font-weight: 500;
+	padding: 0;
+	padding-bottom: 4px;
+	font-style: normal;
+	font-size: 17px;
+	background: none !important;
+	border: none;
+	cursor: pointer;
+	color: #1E3760;
+	margin-left: 8px;
+	margin-right: 8px;
+	border-bottom: 2px solid transparent; /* Add a transparent border initially */
+    transition: border-bottom 0.3s ease;
+	position: relative;
+	text-decoration: none;
+}
+
+
+#industries::before,
+#programs::before,
+#insights::before,
+#about_us::before,
+#contact_us::before, /* Add a pseudo-element for the border to each button */
+#lang::before {
+    content: ''; /* Add a pseudo-element for the border */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Start with a width of 0 */
+    height: 1px; /* Set the desired border height */
+    background-color: transparent; /* Set a transparent background color */
+    transition: width 0.3s ease; /* Add a transition for the width */
+}
+
+#industries:hover::before,
+#programs:hover::before,
+#insights:hover::before,
+#about_us:hover::before,
+#contact_us:hover::before, /* Expand the width and change the background color on hover */
+#lang:hover::before {
+    width: 100%; /* Expand the width to 100% on hover */
+    background-color: black; /* Set the desired border color */
+}
+
+#header_img {
+	position: absolute;
+	width: 250px;
+	height: auto;
+	top: 26.5px;
+}
+
+.x-button {
+	padding-top: 30px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	height: 40px;
+	width: 40px;
+	justify-content: space-between;
+}
+
+.bar1 {
+	width: 141%;
+	background-color: black;
+	height: 1px;
+	margin-top: 0;
+	padding-top: 0;
+	transform-origin: left;
+	transform: rotate(45deg);
+}
+
+.bar2 {
+	width: 141%;
+	background-color: black;
+	height: 1px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	transform-origin: left;
+	transform: rotate(-45deg);
+}
+
+#burg_industries,
+#burg_programs,
+#burg_insights,
+#burg_the_circle,
+#burg_about_us,
+#burg_contact_us,
+#burg_lang
+{
+	margin-right: 0;
+	box-sizing: border-box;
+	font-family: "neuzeit-grotesk", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 17px;
+	background: none !important;
+	border: none;
+	cursor: pointer;
+	color: #1E3760;
+	padding: 5px 5px 5px 5px;
+	margin-top: 20px;
+	display:inline-block;
+	position: relative;
+	text-decoration: none;
+	width: 90px;
+}
+
+.hamburger_buttons{
+	display: none;
+}
+.burg_industries_div{
+	display: none;
+}
+.burg_programs_div{
+	display: none;
+}
+.burg_insights_div{
+	display: none;
+}
+@media only screen and (max-width: 1400px){
+	.header_contained{
+		width: calc(100%-60px);
+		margin-left: 60px;
+		padding-left: 0px;
+	}
+}
+@media only screen and (max-width: 825px) {
+	.header_buttons{
+		display: none;
+	}
+	.hamburger{
+		width: 50px;
+		height:45px;
+		position: relative;
+		margin-top: -70px;
+		margin-right: 20px;
+		float: right;
+	}
+	.burg_bar1{
+		width: 50px;
+		height: 2px;
+		background-color: black;
+	}
+	.burg_bar2{
+		width: 50px;
+		height: 2px;
+		background-color: black;
+		margin-top: 19.5px;
+	}
+	.burg_bar3{
+		width: 50px;
+		height: 2px;
+
+		background-color: black;
+		margin-top: 19.5px;
+	}
+	.hamburg_buttons_con, .burg_industries_div, .burg_programs_div, .burg_insights_div{
+		width: 100%;
+		height: 100%; /* Set full viewport height */
+		display: none;
+		justify-content: flex-end; /* Align content to the right */
+		align-items: center; /* Center vertically */
+		position: fixed;
+		top: 100px;
+		right: -100px; /* Start off-screen to the right */
+		background-color: rgba(0, 0, 0, 0.3);
+		animation: slideLeft 0.25s ease-in-out forwards;	
+	
+	}
+	.hamburger_buttons, .burg_sub_header_container{
+		width: 100%;
+		height: 100%;
+        background-color: white;
+        padding: 10px;
+        text-align: center;
+	}
+	.btn {
+		margin: 0;
+		border: none;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		background-color: white;
+		transition: all 0.3s;
+	}
+	.btn:hover{
+		border-bottom: 1px black solid;
+		transform: translateY(-10px);
+	}
+	.hamburg_table td{
+		text-align: center;
+        vertical-align: middle;
+        height: 50px; /* Set a fixed height for vertical alignment */
+        display: table-cell;
+	}
+	.hamburg_table{
+		border-collapse: collapse;
+		width: 100%;
+	}   
+	
+	#header_img {
+		position: absolute;
+		width: 200px;
+		height: auto;
+		top: 28px;
+		left: 20px;
+	}
+	@keyframes rotateAnimationTopIn {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(42deg);
+		}
+	}
+	@keyframes rotateAnimationBottomIn {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(-42deg);
+		}
+	}
+	@keyframes rotateAnimationTopIn2 {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(23deg);
+		}
+	}
+	@keyframes rotateAnimationBottomIn2 {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(-23deg);
+		}
+	}
+	@keyframes rotateAnimationTopOut {
+		from {
+			transform: rotate(42deg);
+		}
+		to {
+			transform: rotate(0deg);
+		}
+	}
+	@keyframes rotateAnimationBottomOut {
+		from {
+			transform: rotate(-42deg);
+		}
+		to {
+			transform: rotate(0deg);
+		}
+	}
+	@keyframes slideLeft {
+		0% {
+			right: -200px;
+		}
+		100% {
+			right: 0;
+		}
+	}
+	@keyframes slideRight {
+		0% {
+			right: 0px;
+
+		}
+		100% {
+			right: -200px;
+
+		}
+	}
+}
