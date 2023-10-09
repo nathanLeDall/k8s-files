@@ -1,1 +1,24 @@
+name: CI/CD Pipeline
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: [self-hosted]
+    env:
+        path: k8s-t2/target/
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker Image php-app
+        run: docker build -t php-app:latest -f $path"Dockerfile-php" .
+
+      - name: load docker image to k8s php-app
+        run: minikube image load php-app:latest
+
+      - name: Deploy to Kubernetes
+        run: kubectl apply -f $path"deployment-php.yaml"
