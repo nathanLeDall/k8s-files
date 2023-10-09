@@ -18,7 +18,7 @@ jobs:
         run: docker build -t php-app:latest -f $path"Dockerfile-php" .
 
       - name: load docker image to k8s php-app
-        run: minikube image load php-app:latest
+        run: minikube image load php-app:3.0
 
       - name: Deploy to Kubernetes
         run: kubectl apply -f $path"deployment-php.yaml"
