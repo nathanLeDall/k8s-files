@@ -10,3 +10,12 @@
 replicas: 2
   template:
     spec:
+
+
+	apiVersion: actions.summerwind.dev/v1alpha1
+kind: Runner
+metadata:
+  name: k8s-file-runner
+  namespace: actions
+spec:
+  repository: nathanledall/k8s-files
