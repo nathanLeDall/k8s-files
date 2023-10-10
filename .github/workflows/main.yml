@@ -9,7 +9,7 @@ jobs:
   build-and-deploy:
     runs-on: self-hosted
     env:
-        path: k8s-t2/target/
+        path: /docker_images/
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2

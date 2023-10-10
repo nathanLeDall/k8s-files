@@ -1,0 +1,12 @@
+#spec:
+#  repository: nathanledall/k8s-files
+#resources:
+#    requests:
+#      memory: "250Mi"
+#    limits:
+#      memory: "250Mi"
+
+
+replicas: 2
+  template:
+    spec:

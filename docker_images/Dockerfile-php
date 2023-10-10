@@ -1,0 +1,15 @@
+# Use a PHP base image
+FROM php:8.2.10-apache
+
+# Set the working directory inside the container
+WORKDIR /var/www/html
+
+# Copy the PHP application files into the container
+COPY php-app/ .
+
+# Expose port 80 for web traffic
+EXPOSE 80
+
+# Start the Apache server
+CMD ["apache2-foreground"]
+
