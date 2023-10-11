@@ -5,7 +5,7 @@ FROM php:8.2.10-apache
 WORKDIR /var/www/html
 
 # Copy the PHP application files into the container
-COPY php-app/ .
+COPY ../php/ .
 
 # Expose port 80 for web traffic
 EXPOSE 80
