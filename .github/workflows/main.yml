@@ -14,6 +14,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: create cube config
+        run: |
+            mkdir ${HOME}/.kube
+            echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+      
+      - name: Use context
+        run: kubectl config use-context
+
       - name: Build Docker Image php-app
         run: docker build -t php-app:latest -f $path"Dockerfile-php" .
 
