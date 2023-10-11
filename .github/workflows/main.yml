@@ -13,16 +13,17 @@ jobs:
 
     env:
         path: docker_images/
+        KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
     steps:
       - uses: actions-hub/kubectl@master
-      
+
       - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: create cube config
         run: |
             mkdir ${HOME}/.kube
-            echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+            echo ${KUBE_CONFIG}} | base64 --decode > ${HOME}/.kube/config
       
       - name: Use context
         run: kubectl config use-context
