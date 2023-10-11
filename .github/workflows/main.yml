@@ -8,9 +8,14 @@ on:
 jobs:
   build-and-deploy:
     runs-on: self-hosted
+
+    
+
     env:
         path: docker_images/
     steps:
+      - uses: actions-hub/kubectl@master
+      
       - name: Checkout Repository
         uses: actions/checkout@v2
 
