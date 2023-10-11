@@ -16,6 +16,8 @@ jobs:
         KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
     steps:
       - uses: actions-hub/kubectl@master
+        with:
+          args: get pods
 
       - name: Checkout Repository
         uses: actions/checkout@v2
