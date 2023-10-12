@@ -24,10 +24,13 @@ jobs:
       - name: test ls
         run: pwd
       
-      - uses: actions-hub/kubectl@master
-        with:
-          args: get pods -n actions
-      
+      #- uses: actions-hub/kubectl@master
+      #  with:
+      #    args: get pods -n actions
+      - name: Set Up Kubectl
+        run: |
+          kubectl config set-cluster local --server=localhost:8080
+          kubectl config use-context local
       
       - name: Use context
         run: kubectl config use-context
