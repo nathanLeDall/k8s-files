@@ -35,7 +35,7 @@ jobs:
       #    kubectl config use-context local
 
       - name: Build Docker Image php-app
-        run: docker build -t php-app:latest -f ${path}"Dockerfile-php" .
+        run: docker build -t php-app:3.4.5 -f ${path}"Dockerfile-php" .
 
       #- name: load docker image to k8s php-app
       #  run: minikube image load php-app:3.0

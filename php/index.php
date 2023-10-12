@@ -500,8 +500,8 @@
 				</video>
 				<div class="p1_contained">
 					<div class="p1_upper">
-						<h1 id="p1_title">PROPEL YOUR</h1>
-						<h1 id="p1_title">BUSINESS FORWARD</h1>
+						<h1 id="p1_title">IT WORKED</h1>
+						<h1 id="p1_title">LET'S GOOOOOOOO</h1>
 					</div>
 				</div>
 
