@@ -42,6 +42,6 @@ jobs:
       - name: deploy to kubernetes
         uses: actions-hub/kubectl@master
         with:
-          args: apply -f $path"deployment-php.yaml"
+          args: apply -f ${path}"deployment-php.yaml"
       #- name: Deploy to Kubernetes
       #  run: kubectl apply -f $path"deployment-php.yaml"
