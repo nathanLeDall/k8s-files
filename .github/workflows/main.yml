@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: self-hosted
-
     env:
         path: docker_images/
         KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
@@ -25,13 +24,9 @@ jobs:
       - name: test ls
         run: pwd
       
-      - name: thing ig
-        uses: myrotvorets/kubectl-action@2.0.0
+      - uses: actions-hub/kubectl@master
         with:
-          config: ${KUBE_CONFIG}
-          version: latest
           args: get pods -n actions
-          
       
       
       - name: Use context
