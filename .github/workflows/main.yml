@@ -24,22 +24,24 @@ jobs:
       - name: test ls
         run: pwd
       
-      - uses: actions-hub/kubectl@master
+      - name: test connection to kubectl
+        uses: actions-hub/kubectl@master
         with:
           args: get pods -n actions
       #- name: Set Up Kubectl
       #  run: |
       #    kubectl config set-cluster local --server=localhost:8080
       #    kubectl config use-context local
-      
-      - name: Use context
-        run: kubectl config use-context
 
       - name: Build Docker Image php-app
         run: docker build -t php-app:latest -f $path"Dockerfile-php" .
 
-      - name: load docker image to k8s php-app
-        run: minikube image load php-app:3.0
+      #- name: load docker image to k8s php-app
+      #  run: minikube image load php-app:3.0
 
-      - name: Deploy to Kubernetes
-        run: kubectl apply -f $path"deployment-php.yaml"
+      - name: deploy to kubernetes
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f $path"deployment-php.yaml"
+      #- name: Deploy to Kubernetes
+      #  run: kubectl apply -f $path"deployment-php.yaml"
