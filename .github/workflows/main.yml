@@ -24,11 +24,10 @@ jobs:
       - name: test ls
         run: pwd
       
-      - name: Set up Kubectl
-        run: |
-          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-          chmod +x kubectl
-          sudo mv kubectl /usr/local/bin/
+      - uses: azure/setup-kubectl@v3
+        with:
+           version: '<version>' # default is latest stable
+        id: install
       #- uses: actions-hub/kubectl@master
       #  with:
       #    args: get pods -n actions
