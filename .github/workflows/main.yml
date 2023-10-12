@@ -24,6 +24,9 @@ jobs:
             mkdir ${HOME}/.kube
             echo ${KUBE_CONFIG} | base64 --decode > ${HOME}/.kube/config
       
+      - name: test ls
+        run: ls /Users/nathanledall/.minikube/profiles/minikube/
+      
       - uses: actions-hub/kubectl@master
         with:
           args: get pods -n actions
