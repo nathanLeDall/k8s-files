@@ -25,7 +25,7 @@ jobs:
             echo ${KUBE_CONFIG} | base64 --decode > ${HOME}/.kube/config
       
       - name: test ls
-        run: ls /Users/nathanledall/.minikube/profiles/minikube/
+        run: pwd
       
       - uses: actions-hub/kubectl@master
         with:
