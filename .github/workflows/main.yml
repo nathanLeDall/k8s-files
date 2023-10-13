@@ -49,10 +49,10 @@ jobs:
           args: apply -f ${{env.yaml}}"deployment-php.yaml"
       
       - name: Set up JDK
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
-          distribution: 'adopt@1.11'
-          java-version: '11'
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
 
       - name: Build with Maven
         run: mvn clean install
