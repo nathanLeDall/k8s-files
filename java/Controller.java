@@ -8,5 +8,4 @@ public class Controller{
 	public String getString() {
 		return "it worked <br> and \n so did the github stuffs";
 	}
-
 }
