@@ -13,7 +13,7 @@ spec:
         app: spring-boot-app
     spec:
       containers:
-      - name: spring-boot-container
+      - name: spring-boot-app
         image: docker.io/nathanledall/spring-boot-app:latest # Use the correct image name
         ports:
         - containerPort: 8080
