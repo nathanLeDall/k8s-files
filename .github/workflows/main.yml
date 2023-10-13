@@ -53,7 +53,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          
+
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.10.0
   
@@ -65,6 +65,7 @@ jobs:
             docker build -t spring-boot-app:latest -f ${path}"Dockerfile" .
             docker tag spring-boot-app:latest docker.io/nathanledall/spring-boot-app:latest
             docker push docker.io/nathanledall/spring-boot-app:latest
+      
       - name: deploy to kubernetes
         uses: actions-hub/kubectl@master
         with:
