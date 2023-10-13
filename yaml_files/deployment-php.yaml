@@ -13,8 +13,8 @@ spec:
         app: php-app
     spec:
       containers:
-        - name: php-container
-          image: php-app:3.4.5 # Updated image name and tag
+        - name: php-app
+          image: docker.io/nathanledall/php-app:latest # Updated image name and tag
           ports:
             - containerPort: 80
 

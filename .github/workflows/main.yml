@@ -29,10 +29,7 @@ jobs:
         uses: actions-hub/kubectl@master
         with:
           args: get pods -n actions
-      #- name: Set Up Kubectl
-      #  run: |
-      #    kubectl config set-cluster local --server=localhost:8080
-      #    kubectl config use-context local
+
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
@@ -45,17 +42,27 @@ jobs:
             docker build -t php-app:latest -f ${path}"Dockerfile-php" .
             docker tag php-app:latest docker.io/nathanledall/php-app:latest
             docker push docker.io/nathanledall/php-app:latest
-        
-      #- name: Build Docker Image php-app
-      #  run: docker build -t php-app:3.4.5 -f ${path}"Dockerfile-php" .
-
-
-      #- name: load docker image to k8s php-app
-      #  run: minikube image load php-app:3.0
 
       - name: deploy to kubernetes
         uses: actions-hub/kubectl@master
         with:
           args: apply -f ${{env.yaml}}"deployment-php.yaml"
-      #- name: Deploy to Kubernetes
-      #  run: kubectl apply -f $path"deployment-php.yaml"
+      
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt@1.11'
+          java-version: '11'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Build and Push Docker Image
+        run: |
+            docker build -t spring-boot-app:latest -f ${path}"Dockerfile" .
+            docker tag spring-boot-app:latest docker.io/nathanledall/spring-boot-app:latest
+            docker push docker.io/nathanledall/spring-boot-app:latest
+      - name: deploy to kubernetes
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f ${{env.yaml}}"deployment.yaml"
