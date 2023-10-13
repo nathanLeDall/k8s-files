@@ -40,8 +40,14 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.io
       
-      - name: Build Docker Image php-app
-        run: docker build -t php-app:3.4.5 -f ${path}"Dockerfile-php" .
+      - name: Build and Push Docker Image
+        run: |
+            docker build -t php-app:latest -f ${path}"Dockerfile-php" .
+            docker tag php-app:latest docker.io/nathanledall/php-app:latest
+            docker push docker.io/nathanledall/php-app:latest
+        
+      #- name: Build Docker Image php-app
+      #  run: docker build -t php-app:3.4.5 -f ${path}"Dockerfile-php" .
 
 
       #- name: load docker image to k8s php-app
