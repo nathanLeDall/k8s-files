@@ -24,10 +24,10 @@ jobs:
       #- name: 'Use gcloud CLI'
       #  run: 'kubectl get pods'
 
-      #- name: Azure Login
-      #  uses: azure/login@v1
-      #  with:
-      #    creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Set up Azure CLI
         run: |
           curl -L https://aka.ms/InstallAzureCli | bash
