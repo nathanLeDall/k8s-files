@@ -8,7 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: self-hosted
-
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -69,4 +71,3 @@ jobs:
 
       #- name: Apply Kubernetes manifests to AKS
       #  run: kubectl get pods
-      
