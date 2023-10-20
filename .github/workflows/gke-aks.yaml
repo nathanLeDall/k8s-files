@@ -24,14 +24,14 @@ jobs:
       #- name: 'Use gcloud CLI'
       #  run: 'kubectl get pods'
 
-      - name: Set up Azure CLI
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.53.0
-          inlineScript: kubectl get pods
+      #- name: Set up Azure CLI
+      #  uses: azure/CLI@v1
+      #  with:
+      #    azcliversion: 2.53.0
+      #    inlineScript: kubectl get pods
       
-      - name: Apply Kubernetes manifests to GKE
-        run: kubectl get pods
+      #- name: Apply Kubernetes manifests to GKE
+      #  run: kubectl get pods
 
       #- name: Disconnect from GKE
       #  run: gcloud auth revoke
