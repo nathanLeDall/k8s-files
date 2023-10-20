@@ -69,3 +69,4 @@ jobs:
 
       #- name: Apply Kubernetes manifests to AKS
       #  run: kubectl get pods
+      
