@@ -16,7 +16,14 @@ jobs:
       #- id: 'auth'
       #  uses: 'google-github-actions/auth@v1'
       #  with:
-      #    credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      #    workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+      #    service_account: '84569582463-compute@developer.gserviceaccount.com'
+
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+          project_id: inspired-verve-402211
+          export_default_credentials: true
 
       #- name: 'Set up Cloud SDK'
       #  uses: 'google-github-actions/setup-gcloud@v1'
@@ -24,19 +31,19 @@ jobs:
       #- name: 'Use gcloud CLI'
       #  run: 'kubectl get pods'
 
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Set up Azure CLI
-        run: |
-          curl -L https://aka.ms/InstallAzureCli | bash
-          echo 'export PATH="$HOME/.azure-cli/bin:$PATH"' >> $HOME/.bash_profile
-          source $HOME/.bash_profile
-          az --version
-          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+      #- name: Azure Login
+      #  uses: azure/login@v1
+      #  with:
+      #    creds: ${{ secrets.AZURE_CREDENTIALS }}
+      #- name: Set up Azure CLI
+      #  run: |
+      #    curl -L https://aka.ms/InstallAzureCli | bash
+      #    echo 'export PATH="$HOME/.azure-cli/bin:$PATH"' >> $HOME/.bash_profile
+      #    source $HOME/.bash_profile
+      #    az --version
+      #    az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
           # Add your deployment steps using Azure CLI commands here
-          kubectl get pods
+      #    kubectl get pods
       #- name: Set up Azure CLI
       #  uses: azure/CLI@v1
       #  with:
@@ -54,5 +61,5 @@ jobs:
       #- name: Login to Azure
       #  run: az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
 
-      - name: Apply Kubernetes manifests to AKS
-        run: kubectl get pods
+      #- name: Apply Kubernetes manifests to AKS
+      #  run: kubectl get pods
