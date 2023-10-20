@@ -35,8 +35,8 @@ jobs:
           project_id: inspired-verve-402211
       
 
-      #- name: 'Set up Cloud SDK'
-      #  uses: 'google-github-actions/setup-gcloud@v1'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
 
       - name: 'Use gcloud CLI'
         run: 'kubectl get pods'
