@@ -19,11 +19,11 @@ jobs:
       #    workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
       #    service_account: '84569582463-compute@developer.gserviceaccount.com'
 
-      - uses: google-github-actions/setup-gcloud@master
-        with:
-          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-          project_id: inspired-verve-402211
-          export_default_credentials: true
+      #- uses: google-github-actions/setup-gcloud@master
+      #  with:
+      #    service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+      #    project_id: inspired-verve-402211
+      #    export_default_credentials: true
       
       - id: 'auth'
         uses: 'google-github-actions/auth@v1'
