@@ -24,6 +24,12 @@ jobs:
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
           project_id: inspired-verve-402211
           export_default_credentials: true
+      
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: 'projects/inspired-verve-402211'
+          service_account: '84569582463-compute@developer.gserviceaccount.com'
 
       #- name: 'Set up Cloud SDK'
       #  uses: 'google-github-actions/setup-gcloud@v1'
