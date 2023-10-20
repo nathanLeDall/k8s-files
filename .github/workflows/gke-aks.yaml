@@ -24,10 +24,18 @@ jobs:
       #- name: 'Use gcloud CLI'
       #  run: 'kubectl get pods'
 
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      #- name: Azure Login
+      #  uses: azure/login@v1
+      #  with:
+      #    creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Set up Azure CLI
+        run: |
+          brew update
+          brew install azure-cli
+          az --version
+          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+          # Add your deployment steps using Azure CLI commands here
+          kubectl get pods
       #- name: Set up Azure CLI
       #  uses: azure/CLI@v1
       #  with:
