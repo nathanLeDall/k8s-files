@@ -30,8 +30,7 @@ jobs:
       #    creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Set up Azure CLI
         run: |
-          brew update
-          brew install azure-cli
+          curl -L https://aka.ms/InstallAzureCli | bash
           az --version
           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
           # Add your deployment steps using Azure CLI commands here
