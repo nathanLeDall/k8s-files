@@ -45,7 +45,7 @@ jobs:
       - id: 'get-credentials'
         uses: 'google-github-actions/get-gke-credentials@v1'
         with:
-          cluster_name: 'gkekube'
+          cluster_name: '84569582463-compute@developer.gserviceaccount.com'
           location: 'us-central1'
 
       - name: 'Use gcloud CLI'
