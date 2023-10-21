@@ -39,8 +39,15 @@ jobs:
       #  with:
       #    version: '>= 363.0.0'
       #    service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
+      #- name: Set up Cloud SDK
+      #  uses: google-github-actions/setup-gcloud@v0
+
+      - id: 'get-credentials'
+        uses: 'google-github-actions/get-gke-credentials@v1'
+        with:
+          cluster_name: 'gkekube'
+          location: 'us-central1'
+
       - name: 'Use gcloud CLI'
         run: 'kubectl get pods'
       #- name: 'Set up Cloud SDK'
