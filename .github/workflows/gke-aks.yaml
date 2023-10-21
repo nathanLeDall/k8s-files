@@ -43,13 +43,16 @@ jobs:
       #- name: Set up Cloud SDK
       #  uses: google-github-actions/setup-gcloud@v0
 
-      - name: Get GKE credentials
-        uses: google-github-actions/get-gke-credentials@v0
-        with:
-          cluster_name: gkekube
-          location: us-central1
-          project_id: inspired-verve-402211
-
+      #- name: Get GKE credentials
+      #  uses: google-github-actions/get-gke-credentials@v0
+      #  with:
+      #    cluster_name: gkekube
+      #    location: us-central1
+      #    project_id: inspired-verve-402211
+      - name: Configure kubectl
+        run: |
+          gcloud container clusters get-credentials gkekube --region=us-central1 --project=inspired-verve-402211
+          kubectl version --short
       - name: 'Use gcloud CLI'
         run: 'kubectl get pods'
       #- name: 'Set up Cloud SDK'
