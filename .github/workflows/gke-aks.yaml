@@ -11,6 +11,7 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
+      
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -45,8 +46,8 @@ jobs:
       - id: 'get-credentials'
         uses: 'google-github-actions/get-gke-credentials@v1'
         with:
-          cluster_name: 'inspired-verve-402211.svc.id.goog'
-          location: 'us-central1'
+          cluster_name: 'projects/inspired-verve-402211'
+          location: 'us-central1-a'
 
       - name: 'Use gcloud CLI'
         run: 'kubectl get pods'
