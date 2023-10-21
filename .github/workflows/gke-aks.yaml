@@ -45,7 +45,7 @@ jobs:
       - id: 'get-credentials'
         uses: 'google-github-actions/get-gke-credentials@v1'
         with:
-          cluster_name: '84569582463-compute@developer.gserviceaccount.com'
+          cluster_name: 'inspired-verve-402211.svc.id.goog'
           location: 'us-central1'
 
       - name: 'Use gcloud CLI'
