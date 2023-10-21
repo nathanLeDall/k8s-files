@@ -34,14 +34,13 @@ jobs:
           service_account: '84569582463-compute@developer.gserviceaccount.com'
           project_id: inspired-verve-402211
       
-      - name: 'Use gcloud CLI'
-        run: 'kubectl get pods'
-      
-      - name: 'Set up Cloud SDK'
-        uses: 'google-github-actions/setup-gcloud@v1'
-        with:
-          version: '>= 363.0.0'
-
+      #- name: 'Set up Cloud SDK'
+      #  uses: google-github-actions/setup-gcloud@v1
+      #  with:
+      #    version: '>= 363.0.0'
+      #    service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
       #- name: 'Set up Cloud SDK'
