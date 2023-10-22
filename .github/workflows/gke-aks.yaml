@@ -46,6 +46,8 @@ jobs:
       - name: test
         run: |
           gcloud config set account ACCOUNT
+          kubectl get deployments
+          kubectl get pods
         #gcloud container clusters get-credentials gkekube --region us-central1-a --project inspired-verve-402211
         #location: us-central1-a
         #project_id: inspired-verve-402211
