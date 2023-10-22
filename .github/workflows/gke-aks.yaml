@@ -37,7 +37,7 @@ jobs:
       - id: 'get-credentials'
         uses: 'google-github-actions/get-gke-credentials@v1'
         with:
-          cluster_name: gkekube
+          cluster_name: gkekube/c
           location: us-central1
           project_id: inspired-verve-402211
 
