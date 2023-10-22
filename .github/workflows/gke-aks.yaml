@@ -42,15 +42,21 @@ jobs:
       #    service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
-      - name: Install kubectl
+      
+      - name: create cube config
         run: |
-          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/arm64/kubectl"
-          chmod +x kubectl
-          sudo mv kubectl /usr/local/bin/
+            mkdir ${HOME}/.kube
+            echo ${{ secrets.GLCOU_KUBE_SETUP }} | base64 --decode > ${HOME}/.kube/config
+      
+      - name: test connection to kubectl
+        uses: actions-hub/kubectl@master
+        with:
+          args: get pods
+
       - name: test
         run: |
           gcloud config set account ACCOUNT
-          
+          kubectl get deployments
           kubectl get pods
         #gcloud container clusters get-credentials gkekube --region us-central1-a --project inspired-verve-402211
         #location: us-central1-a
