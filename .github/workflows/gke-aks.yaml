@@ -49,7 +49,7 @@ jobs:
 
       - name: create cube config
         run: |
-            mkdir ${HOME}/.kube
+            mkdir ${HOME}/.kube 
             echo ${KUBE_CONFIG} | base64 --decode > ${HOME}/.kube/config
       
       - name: test connection to kubectl
