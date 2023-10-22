@@ -46,8 +46,7 @@ jobs:
       #    service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
-      - name: gcloud 
-        run: gcloud components install gke-gcloud-auth-plugin
+
       - name: create cube config
         run: |
             mkdir ${HOME}/.kube
