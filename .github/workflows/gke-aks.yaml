@@ -9,6 +9,10 @@ jobs:
   deploy:
     runs-on: self-hosted
     env:
+      PROJECT_ID: inspired-verve-402211
+      APPLICATION_CREDENTIALS: ${{ secrets.GKE_SA_JSON_KEY }}
+      CLUSTER_NAME: gkekube
+      ZONE_NAME: us-central1-a
       path: docker_images/
       yaml: yaml_files/
       KUBE_CONFIG: ${{ secrets.GLCOU_KUBE_SETUP }}
@@ -56,14 +60,18 @@ jobs:
       #  uses: actions-hub/kubectl@master
       #  with:
       #    args: get pods
-
+      - name: kubectl - Google Cloud GKE cluster.
+        uses: ameydev/gke-kubectl-action@master
+        with:
+          args: get pods
+    
       - name: test
         run: |
           gcloud config set account ACCOUNT
           
           kubectl get deployments
           kubectl get pods
-          
+
         #gcloud container clusters get-credentials gkekube --region us-central1-a --project inspired-verve-402211
         #location: us-central1-a
         #project_id: inspired-verve-402211
