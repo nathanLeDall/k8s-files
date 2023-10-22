@@ -8,6 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: self-hosted
+    env:
+      path: docker_images/
+      yaml: yaml_files/
+      KUBE_CONFIG: ${{ secrets.GLCOU_KUBE_SETUP }}
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -46,7 +50,7 @@ jobs:
       - name: create cube config
         run: |
             mkdir ${HOME}/.kube
-            echo ${{ secrets.GLCOU_KUBE_SETUP }} | base64 --decode > ${HOME}/.kube/config
+            echo ${KUBE_CONFIG} | base64 --decode > ${HOME}/.kube/config
       
       - name: test connection to kubectl
         uses: actions-hub/kubectl@master
