@@ -33,7 +33,13 @@ jobs:
       
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
-    
+
+      - id: 'get-credentials'
+        uses: 'google-github-actions/get-gke-credentials@v1'
+        with:
+          cluster_name: gkekube
+          location: us-central1-a
+          project_id: inspired-verve-402211
       - name: test
         run: |
           gcloud config set account ACCOUNT
