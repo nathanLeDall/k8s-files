@@ -44,9 +44,11 @@ jobs:
         uses: google-github-actions/setup-gcloud@v0
 
       - name: test
-        run: gcloud container clusters get-credentials gkekube --region us-central1-a --project inspired-verve-402211
-          #location: us-central1-a
-          #project_id: inspired-verve-402211
+        run: |
+          gcloud config set account ACCOUNT
+        #gcloud container clusters get-credentials gkekube --region us-central1-a --project inspired-verve-402211
+        #location: us-central1-a
+        #project_id: inspired-verve-402211
       #- name: Get GKE credentials
       #  uses: google-github-actions/get-gke-credentials@v0
       #  with:
