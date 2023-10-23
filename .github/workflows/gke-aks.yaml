@@ -37,7 +37,10 @@ jobs:
       - name: test
         run: |
           gcloud config set account ACCOUNT
-          
+          gcloud auth list
+          gcloud components install kubectl
 
       - name: 'Use gcloud CLI'
-        run: 'kubectl get pods'
+        run: |
+          kubectl config view --minify --output 'jsonpath={..user}'
+          kubectl get pods
