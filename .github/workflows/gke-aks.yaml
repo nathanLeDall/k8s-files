@@ -12,7 +12,7 @@ jobs:
       PROJECT_ID: inspired-verve-402211
       APPLICATION_CREDENTIALS: ${{ secrets.GKE_SA_JSON_KEY }}
       CLUSTER_NAME: gkekube
-      ZONE_NAME: us-central1-a
+      ZONE_NAME: us-central1
       path: docker_images/
       yaml: yaml_files/
       KUBE_CONFIG: ${{ secrets.GLCOU_KUBE_SETUP }}
@@ -32,14 +32,7 @@ jobs:
           project_id: inspired-verve-402211
       
       - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
-
-      #- id: 'get-credentials'
-      #  uses: 'google-github-actions/get-gke-credentials@v1'
-      #  with:
-      #    cluster_name: gkekube
-      #    location: us-central1
-      #    project_id: inspired-verve-402211
+        uses: google-github-actions/setup-gcloud@v1
 
       - name: test
         run: |
