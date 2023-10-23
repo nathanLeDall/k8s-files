@@ -41,6 +41,3 @@ jobs:
 
       - name: 'Use gcloud CLI'
         run: 'kubectl get pods'
-
-
-        
