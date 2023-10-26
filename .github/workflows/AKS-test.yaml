@@ -24,7 +24,8 @@ jobs:
       - name: create cube config
         run: |
             mkdir ${HOME}/.kube
-            echo ${KUBE_CONFIG} | base64 --decode > ${HOME}/.kube/config
+            echo ${KUBE_CONFIG} | base64 --decode > ${HOME}/.kube/config 
+            
       
       - name: test ls
         run: pwd
