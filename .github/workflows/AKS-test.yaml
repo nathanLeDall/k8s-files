@@ -31,11 +31,18 @@ jobs:
       #    branch: master
       #    tag: ${{ github.sha }}
       #    git_access_token: ${{secrets.git_access_token}}
-      - name: Azure login
-        id: login
-        uses: azure/login@v1
+      #- name: Azure login
+      #  id: login
+      #  uses: azure/login@v1
+      #  with:
+      #    creds: ${{ secrets.AZ_JSON_LOGIN }}
+      - name: Run Azure CLI Command
+        uses: azure/cli@v1
         with:
-          creds: ${{ secrets.AZ_JSON_LOGIN }}
+          azcliversion: latest
+          inlineScript: 'az group list --output table'
+        env:
+          AZURE_CLI_SECRET: ${{ secrets.AZ_JSON_LOGIN }}
       - name: Set AKS context
         id: set-context
         uses: azure/aks-set-context@v3
