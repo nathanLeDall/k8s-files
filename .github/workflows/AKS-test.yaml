@@ -46,7 +46,7 @@ jobs:
           creds: ${{secrets.AZ_JSON_LOGIN}}
           enable-AzPSSession: true 
       - run: |
-          kubectl get pods
+          kubectl get pods 
       - name: Run Azure CLI Command
         uses: azure/cli@v1
         with:
