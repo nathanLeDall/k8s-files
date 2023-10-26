@@ -32,4 +32,6 @@ jobs:
       - name: test connection to kubectl
         uses: actions-hub/kubectl@master
         with:
-          args: get pods
+          args: |
+            apply -f yaml_files/deployment.yaml -n actions
+            get pods -n actions
