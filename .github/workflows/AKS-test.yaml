@@ -4,8 +4,12 @@ on:
   push:
     branches:
       - main
-
+permissions:
+        id-token: write
+        contents: read
+        actions: read
 jobs:
+  
   build-and-deploy:
     runs-on: self-hosted
     env:
@@ -36,13 +40,20 @@ jobs:
       #  uses: azure/login@v1
       #  with:
       #    creds: ${{ secrets.AZ_JSON_LOGIN }}
+      - name: Login via Az module
+        uses: azure/login@v1
+        with:
+          creds: ${{secrets.AZ_JSON_LOGIN}}
+          enable-AzPSSession: true 
+      - run: |
+          kubectl get pods
       - name: Run Azure CLI Command
         uses: azure/cli@v1
         with:
           azcliversion: latest
           inlineScript: |
             az login
-            az group list --output table
+            kubectl get pods
         env:
           AZURE_CLI_SECRET: ${{ secrets.AZ_JSON_LOGIN }}
       - name: Set AKS context
