@@ -13,8 +13,9 @@ jobs:
   build-and-deploy:
     runs-on: self-hosted
     env:
-        path: docker_images/
-        yaml: yaml_files/
+      path: docker_images/
+      yaml: yaml_files/
+      KUBE_CONFIG: ${{ secrets.AZ_KUBE_CONFIG_B64}}
 
     steps:
 
@@ -40,6 +41,19 @@ jobs:
       #  uses: azure/login@v1
       #  with:
       #    creds: ${{ secrets.AZ_JSON_LOGIN }}
+      - name: create cube config
+        run: |
+            mkdir ${HOME}/.kube
+            echo ${KUBE_CONFIG} | base64 --decode > ${HOME}/.kube/config
+      
+      - name: test ls
+        run: pwd
+      
+      - name: test connection to kubectl
+        uses: actions-hub/kubectl@master
+        with:
+          args: get pods -n actions
+      
       - name: Login via Az module
         uses: azure/login@v1
         with:
