@@ -34,4 +34,3 @@ jobs:
         with:
           args: |
             apply -f yaml_files/deployment.yaml -n actions
-            get pods -n actions
