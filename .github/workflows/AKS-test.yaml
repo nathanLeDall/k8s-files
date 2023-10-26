@@ -18,29 +18,9 @@ jobs:
       KUBE_CONFIG: ${{ secrets.AZ_KUBE_CONFIG_B64}}
 
     steps:
-
       - name: Checkout Repository
         uses: actions/checkout@v2
-      
-      #- name: ACR build
-      #  id: build-push-acr
-      #  uses: azure/acr-build@v1
-      #  with:
-      #    service_principal: ${{ secrets.service_principal }}
-      #    service_principal_password: ${{ secrets.service_principal_password }}
-      #    tenant: ${{ secrets.tenant }}
-      #    registry: https://hub.docker.com/repository/docker/nathanledall/php-app/general
-      #    repository: azuredocs
-      #    image:  azure-vote-front
-      #    folder: azure-vote
-      #    branch: master
-      #    tag: ${{ github.sha }}
-      #    git_access_token: ${{secrets.git_access_token}}
-      #- name: Azure login
-      #  id: login
-      #  uses: azure/login@v1
-      #  with:
-      #    creds: ${{ secrets.AZ_JSON_LOGIN }}
+
       - name: create cube config
         run: |
             mkdir ${HOME}/.kube
@@ -52,39 +32,4 @@ jobs:
       - name: test connection to kubectl
         uses: actions-hub/kubectl@master
         with:
-          args: get pods -n actions
-      
-      - name: Login via Az module
-        uses: azure/login@v1
-        with:
-          creds: ${{secrets.AZ_JSON_LOGIN}}
-          enable-AzPSSession: true 
-      - run: |
-          kubectl get pods 
-      - name: Run Azure CLI Command
-        uses: azure/cli@v1
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az login
-            kubectl get pods
-        env:
-          AZURE_CLI_SECRET: ${{ secrets.AZ_JSON_LOGIN }}
-      - name: Set AKS context
-        id: set-context
-        uses: azure/aks-set-context@v3
-        with:
-          resource-group: group1 
-          cluster-name: '${{ secrets.cluster_name }}'
-      - name: Setup kubectl
-        id: install-kubectl
-        uses: azure/setup-kubectl@v3
-      - name: Deploy to AKS
-        id: deploy-aks
-        uses: Azure/k8s-deploy@v4
-        with:
-          namespace: 'default'
-          manifests: |
-             get pods
-          images: https://hub.docker.com/repository/docker/nathanledall/php-app/general
-          pull-images: false
+          args: get pods
