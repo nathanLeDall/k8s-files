@@ -33,7 +33,7 @@ jobs:
       #    git_access_token: ${{secrets.git_access_token}}
       - name: Azure login
         id: login
-        uses: azure/login@v1.4.3
+        uses: azure/login@v1
         with:
           creds: ${{ secrets.AZ_JSON_LOGIN }}
       - name: Set AKS context
