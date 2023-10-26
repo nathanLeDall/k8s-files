@@ -17,20 +17,20 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       
-      - name: ACR build
-        id: build-push-acr
-        uses: azure/acr-build@v1
-        with:
-          service_principal: ${{ secrets.service_principal }}
-          service_principal_password: ${{ secrets.service_principal_password }}
-          tenant: ${{ secrets.tenant }}
-          registry: https://hub.docker.com/repository/docker/nathanledall/php-app/general
-          repository: azuredocs
-          image:  azure-vote-front
-          folder: azure-vote
-          branch: master
-          tag: ${{ github.sha }}
-          git_access_token: ${{secrets.git_access_token}}
+      #- name: ACR build
+      #  id: build-push-acr
+      #  uses: azure/acr-build@v1
+      #  with:
+      #    service_principal: ${{ secrets.service_principal }}
+      #    service_principal_password: ${{ secrets.service_principal_password }}
+      #    tenant: ${{ secrets.tenant }}
+      #    registry: https://hub.docker.com/repository/docker/nathanledall/php-app/general
+      #    repository: azuredocs
+      #    image:  azure-vote-front
+      #    folder: azure-vote
+      #    branch: master
+      #    tag: ${{ github.sha }}
+      #    git_access_token: ${{secrets.git_access_token}}
       - name: Azure login
         id: login
         uses: azure/login@v1.4.3
