@@ -38,6 +38,7 @@ jobs:
   
       - name: 'Use gcloud CLI'
         run: |
+          gcloud auth activate-service-account --key-file=${{ secrets.GKE_SA_JSON_KEY }}
           gcloud info
           gcloud container clusters get-credentials gkekube
       
