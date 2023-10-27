@@ -37,7 +37,7 @@ jobs:
           version: '>= 363.0.0'
       - name: test name
         run: |
-          echo "${{ secrets.GKE_SA_JSON_KEY }}" > /tmp/key.json 
+          echo "${{ secrets.GKE_SA_JSON_KEY }}" | base64 --decode > /tmp/key.json && gcloud auth activate-service-account --key-file=/tmp/key.json
           gcloud auth activate-service-account --key-file=/tmp/key.json
       - name: 'Use gcloud CLI'
         run: |
