@@ -39,8 +39,7 @@ jobs:
       - name: 'Use gcloud CLI'
         run: |
           gcloud info
-          gcloud auth login
-          gcloud container clusters get-credentials gkekube --zone us-central1
+        #gcloud container clusters get-credentials gkekube --zone us-central1
       
       - name: Get Pods
         run: |
