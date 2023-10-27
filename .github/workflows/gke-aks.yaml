@@ -37,4 +37,10 @@ jobs:
           version: '>= 363.0.0'
   
       - name: 'Use gcloud CLI'
-        run: 'gcloud info'
+        run: |
+          gcloud info
+          gcloud container clusters get-credentials gkekube --zone us-central1
+      
+      - name: Get Pods
+        run: |
+          kubectl get pods
