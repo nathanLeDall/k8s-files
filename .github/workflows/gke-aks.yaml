@@ -35,10 +35,10 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
         with:
           version: '>= 363.0.0'
-  
+      - name: test name
+        run: echo "${{ secrets.GKE_SA_JSON_KEY }}" > /tmp/key.json && gcloud auth activate-service-account --key-file=/tmp/key.json
       - name: 'Use gcloud CLI'
         run: |
-          echo "${{ secrets.GKE_SA_JSON_KEY }}" > /tmp/key.json && gcloud auth activate-service-account --key-file=/tmp/key.json
           gcloud info
           gcloud container clusters get-credentials gkekube
       
