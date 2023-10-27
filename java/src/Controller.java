@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller{
 	@GetMapping("/api/test")
 	public String getString() {
-		return "AKS now works! ig and again and again";
+		return "AKS now works!";
 	}
 }
