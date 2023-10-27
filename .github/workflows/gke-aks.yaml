@@ -22,19 +22,19 @@ jobs:
       id-token: 'write'
       
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: create cube config
-        run: |
-            mkdir ${HOME}/.kube
-            echo ${KUBE_CONFIG} | base64 --decode > ${HOME}/.kube/config 
-
-      - name: test ls
-        run: pwd
-      
-      - name: test connection to kubectl
-        uses: actions-hub/kubectl@master
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
         with:
-          args: |
-            --token ${tmp_token} get pods
+          workload_identity_provider: 'projects/123456789/locations/us-central1'
+          service_account: 'github-actions@inspired-verve-402211.iam.gserviceaccount.com'
+  
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+        with:
+          version: '>= 363.0.0'
+  
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
