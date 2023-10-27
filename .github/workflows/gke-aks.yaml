@@ -1,22 +1,26 @@
-name: Deploy to GKE and AKS test
+name: Deploy to GKE and AKS
 
 on:
   push:
     branches:
       - main
-permissions:
-        id-token: write
-        contents: read
-        actions: read
+
 jobs:
-  
-  build-and-deploy:
+  deploy:
     runs-on: self-hosted
     env:
+      PROJECT_ID: inspired-verve-402211
+      APPLICATION_CREDENTIALS: ${{ secrets.GKE_SA_JSON_KEY }}
+      CLUSTER_NAME: gkekube
+      ZONE_NAME: us-central1
       path: docker_images/
       yaml: yaml_files/
-      KUBE_CONFIG: ${{ secrets.AZ_KUBE_CONFIG_B64}}
-
+      tmp_token: a26b44e2a04df8b24c5d66805c4b60c0677feb16 #this token will be deleted very soon
+      KUBE_CONFIG: ${{ secrets.GLCOU_KUBE_SETUP }}
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -25,8 +29,7 @@ jobs:
         run: |
             mkdir ${HOME}/.kube
             echo ${KUBE_CONFIG} | base64 --decode > ${HOME}/.kube/config 
-            
-      
+
       - name: test ls
         run: pwd
       
@@ -34,4 +37,4 @@ jobs:
         uses: actions-hub/kubectl@master
         with:
           args: |
-            apply -f yaml_files/deployment.yaml -n actions
+            --token ${tmp_token} get pods
