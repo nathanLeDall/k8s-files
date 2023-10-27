@@ -38,7 +38,7 @@ jobs:
   
       - name: 'Use gcloud CLI'
         run: |
-          echo "${{ secrets.GKE_SA_JSON_KEY }}" > /tmp/key.json && gcloud auth activate-service-account --key-file=/tmp/key.json
+          echo "${{ secrets.GKE_SA_KEY }}" > /tmp/key.json && gcloud auth activate-service-account --key-file=/tmp/key.json
           gcloud info
           gcloud container clusters get-credentials gkekube
       
