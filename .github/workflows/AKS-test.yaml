@@ -74,4 +74,9 @@ jobs:
       - name: deploy to kubernetes
         uses: actions-hub/kubectl@master
         with:
+          args: delete deployment spring-boot-app
+
+      - name: deploy to kubernetes
+        uses: actions-hub/kubectl@master
+        with:
           args: apply -f ${{env.yaml}}"deployment.yaml"
