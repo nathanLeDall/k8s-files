@@ -50,5 +50,6 @@ jobs:
         run: |
             kubectl apply -f test-github.yaml -n default
             kubectl get pods -n default
+            
 
 
