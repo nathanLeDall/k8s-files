@@ -9,13 +9,13 @@ jobs:
   deploy:
     runs-on: self-hosted
     env:
-      PROJECT_ID: inspired-verve-402211
+      PROJECT_ID: ${{ GKE_PROJECT_ID }}
       APPLICATION_CREDENTIALS: ${{ secrets.GKE_SA_JSON_KEY }}
       CLUSTER_NAME: gkekube
       ZONE_NAME: us-central1
       path: docker_images/
       yaml: yaml_files/
-      tmp_token: a26b44e2a04df8b24c5d66805c4b60c0677feb16 #this token will be deleted very soon
+      tmp_token: ${{ TMP_TOKEN }} #this token will be deleted very soon
       KUBE_CONFIG: ${{ secrets.GLCOU_KUBE_SETUP }}
     permissions:
       contents: 'read'
@@ -29,7 +29,7 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
           workload_identity_provider: 'projects/123456789/locations/us-central1'
-          service_account: 'github-actions@inspired-verve-402211.iam.gserviceaccount.com'
+          service_account: ${{ GKE_SA }}
   
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
@@ -42,14 +42,16 @@ jobs:
       - name: 'Use gcloud CLI'
         run: |
           gcloud container clusters get-credentials gkekube --zone us-central1
+          tanzu accelerator create -f accelerator.yaml
+
       
-      - name: Get Pods
-        run: |
-          kubectl get pods -n default
-      - name: Get Pods
-        run: |
-            kubectl apply -f test-github.yaml -n default
-            kubectl get pods -n default
+      #- name: Get Pods
+      #  run: |
+      #    kubectl get pods -n default
+      #- name: Get Pods
+      #  run: |
+      #      kubectl apply -f test-github.yaml -n default
+      #      kubectl get pods -n default
             
 
 
